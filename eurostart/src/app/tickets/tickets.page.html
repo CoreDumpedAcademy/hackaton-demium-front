@@ -5,19 +5,19 @@
 </ion-header>
 
 <ion-content>
-  <ion-searchbar value="Ionic"></ion-searchbar>
-  <ion-card *ngFor="let item of items">
+  <ion-searchbar [(ngModel)]="search" (ionChange)="inputSearch()"></ion-searchbar>
+  <ion-card *ngFor="let item of showArray">
     <ion-item>
       <ion-icon *ngIf="item.isTrain" name="train" slot="start"></ion-icon>
       <ion-icon *ngIf="!item.isTrain" name="bed" slot="start"></ion-icon>
       <ion-label>{{ item.name }} {{ item.surname }}</ion-label>
       <ion-label slot="end">Precio: {{ item.price }} €</ion-label>
-      <ion-button (click)="sendAllData(item.surname)" fill="outline" slot="end">View</ion-button>
+      <ion-button (click)="sendAllData(item)" fill="outline" slot="end">View</ion-button>
     </ion-item>
 
 
     <ion-card-content>
-      Destino: {{ item.description }}
+      DESTINO: {{ item.from }} <ion-icon size="small" name="arrow-round-forward"></ion-icon> {{ item.to }}
     </ion-card-content>
   </ion-card>
 </ion-content>

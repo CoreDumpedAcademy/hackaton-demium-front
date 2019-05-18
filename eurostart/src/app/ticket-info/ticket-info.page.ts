@@ -22,6 +22,7 @@ export class TicketInfoPage implements OnInit {
 
   ngOnInit() {
     this.SendData.sentData.subscribe(data => {
+      console.log(data);
       this.name = data.name;
       this.lastName = data.surname;
       this.price = data.price;

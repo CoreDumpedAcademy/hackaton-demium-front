@@ -15,11 +15,14 @@ export class TicketsPage implements OnInit {
     }
 
     items: [{}];
+    showArray = [];
+    search: string;
 
     loadTickets() {
         this.api.getData().subscribe((data: [{}]) => {
             this.items = data;
             this.items.reverse();
+            this.showArray = this.items;
         }, err => {
             console.log(err);
         });
@@ -32,5 +35,22 @@ export class TicketsPage implements OnInit {
     sendAllData(data) {
         this.SendData.sendData(data);
         this.router.navigateByUrl('ticket-info');
+    }
+
+    inputSearch() {
+        this.showArray = [];
+        if (this.search !== '') {
+            const regex = new RegExp(this.search, 'i');
+
+            this.items.forEach((item: {
+                surname: string,
+            }) => {
+                if (item.surname.match(regex)) {
+                    this.showArray.push(item);
+                }
+            });
+        } else {
+            this.showArray = this.items;
+        }
     }
 }
