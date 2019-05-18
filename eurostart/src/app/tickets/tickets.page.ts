@@ -30,6 +30,7 @@ export class TicketsPage implements OnInit {
 
     ngOnInit() {
         this.loadTickets();
+        this.storage.set('ticketInfo', {})
     }
 
     sendAllData(data) {
