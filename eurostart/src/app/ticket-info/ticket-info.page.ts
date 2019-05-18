@@ -1,6 +1,7 @@
 import { Component, OnInit, Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { sendData } from '../sendData.service'
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-ticket-info',
@@ -9,7 +10,7 @@ import { sendData } from '../sendData.service'
 })
 export class TicketInfoPage implements OnInit {
 
-  constructor(private http: HttpClient,private sendData: sendData) { }
+  constructor(private http: HttpClient,private sendData: sendData, private router: Router) { }
 
   data; 
   name: String;
