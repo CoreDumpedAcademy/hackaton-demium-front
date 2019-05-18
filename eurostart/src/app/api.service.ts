@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Storage } from '@ionic/storage';
 import { HttpClient } from '@angular/common/http';
-import {ApiResponse } from './api-response'
+import {ApiResponse } from './api-response-train'
 
 @Injectable({
   providedIn: 'root'
