@@ -22,7 +22,7 @@
           <ion-input class="input">{{lastName}}</ion-input>
         </ion-col>
       </ion-row>
-      <ion-row *ngIf="isTrain && city==null">
+      <ion-row *ngIf="isTrain && !city">
         <ion-col>
           <ion-chip color="secondary">
             <ion-label color="dark">{{start}}</ion-label>
@@ -37,7 +37,7 @@
           </ion-chip>
         </ion-col>
       </ion-row>
-      <ion-row *ngIf="!isTrain && city!=null">
+      <ion-row *ngIf="!isTrain && city">
         <ion-col>
           <ion-chip color="secondary">
             <ion-label color="dark">{{finish}}</ion-label>
