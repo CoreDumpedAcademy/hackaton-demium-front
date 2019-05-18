@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 @Component({
@@ -19,8 +19,7 @@ export class TicketInfoPage implements OnInit {
   people: number;
 
   ngOnInit() {
-    this.http.get('http://localhost:3000/ticket/'+this.lastName)
-    this.pricep = this.price/this.people;
+    
   }
 
 }
