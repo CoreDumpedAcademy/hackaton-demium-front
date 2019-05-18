@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {TicketsService} from '../tickets.service';
 import {APIService} from '../api.service';
+import { sendData } from '../sendData.service'
 
 @Component({
     selector: 'app-tickets',
@@ -9,7 +10,7 @@ import {APIService} from '../api.service';
 })
 export class TicketsPage implements OnInit {
 
-    constructor(private api: APIService) {
+    constructor(private api: APIService,private sendData: sendData) {
     }
 
     items: any;
@@ -24,6 +25,10 @@ export class TicketsPage implements OnInit {
 
     ngOnInit() {
         this.loadTickets();
+    }
+
+    sendAllData() {
+        this.sendData.sendData(this.items);
     }
 
 }
