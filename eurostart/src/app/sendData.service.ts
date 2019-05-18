@@ -1,9 +1,11 @@
 import { BehaviorSubject } from 'rxjs';
 import { Injectable } from '@angular/core';
 
-@Injectable()
+@Injectable(
+    
+)
 export class sendData {
-    private dataSource = new BehaviorSubject<Object>({});
+    private dataSource = new BehaviorSubject<String>('');
     sentData = this.dataSource.asObservable();
 
     sendData(data) {
