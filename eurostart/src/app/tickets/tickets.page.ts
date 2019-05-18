@@ -33,6 +33,7 @@ export class TicketsPage implements OnInit {
     }
 
     sendAllData(data) {
+        console.log(data)
         this.storage.set('ticketInfo', data)
         this.router.navigateByUrl('ticket-info');
     }
