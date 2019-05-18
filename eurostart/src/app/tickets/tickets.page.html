@@ -22,14 +22,17 @@
       <ion-icon size="small" name="arrow-round-forward"></ion-icon>
       <ion-chip> {{ item.to }} </ion-chip>
     </ion-card-content>
+
     <ion-card-content *ngIf="item.city && !item.from">
       Ubicacion del Hotel: <ion-chip> {{ item.city }} </ion-chip>
     </ion-card-content>
+
     <ion-card-content *ngIf="item.city && item.from">
       Ubicacion del Hotel: <ion-chip> {{ item.city }} </ion-chip> <br>
       Destino: <ion-chip> {{ item.from }} </ion-chip>
       <ion-icon size="small" name="arrow-round-forward"></ion-icon>
       <ion-chip> {{ item.to }} </ion-chip>
     </ion-card-content>
+
   </ion-card>
 </ion-content>

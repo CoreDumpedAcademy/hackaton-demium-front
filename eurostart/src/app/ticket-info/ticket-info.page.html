@@ -1,86 +1,86 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title></ion-title>
-  </ion-toolbar>
+    <ion-toolbar>
+        <ion-title></ion-title>
+    </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <ion-card>
-    <ion-grid>
-      <ion-row>
-        <ion-col>
-          <ion-input class="input">{{name}}</ion-input>
-        </ion-col>
-        <ion-col>
-          <ion-chip class="priceChip" color="secondary">
-            <ion-label color="dark">{{price}}€/p</ion-label>
-          </ion-chip>
-        </ion-col>
-      </ion-row>
-      <ion-row>
-        <ion-col>
-          <ion-input class="input">{{lastName}}</ion-input>
-        </ion-col>
-      </ion-row>
-      <ion-row *ngIf="isTrain">
-        <ion-col>
-          <ion-chip color="secondary">
-            <ion-label color="dark">{{start}}</ion-label>
-          </ion-chip>
-        </ion-col>
-        <ion-col>
-          <ion-icon name="arrow-round-forward" size="large" class="arrow"></ion-icon>
-        </ion-col>
-        <ion-col>
-          <ion-chip color="secondary">
-            <ion-label color="dark">{{finish}}</ion-label>
-          </ion-chip>
-        </ion-col>
-      </ion-row>
-      <ion-row *ngIf="!isTrain">
-        <ion-col>
-          <ion-chip color="secondary">
-            <ion-label color="dark">{{city}}</ion-label>
-          </ion-chip>
-        </ion-col>
-      </ion-row>
-      <ion-row *ngIf="isTrain==null && city">
-          <ion-col>
-            <ion-chip color="secondary">
-              <ion-label color="dark">{{name}}</ion-label>
-            </ion-chip>
-          </ion-col>
-          <ion-col>
-            <ion-icon name="arrow-round-forward" size="large" class="arrow"></ion-icon>
-          </ion-col>
-          <ion-col>
-            <ion-chip color="secondary">
-              <ion-label color="dark">{{finish}}</ion-label>
-            </ion-chip>
-          </ion-col>
-        </ion-row>
-        <ion-row *ngIf="isTrain==null && city">
-          <ion-col>
-            <ion-chip color="secondary">
-              <ion-label color="dark">{{finish}}</ion-label>
-            </ion-chip>
-          </ion-col>
-        </ion-row>
-      <ion-row>
-        <ion-col>
-          <ion-input class="input">Número de personas: {{people}}</ion-input>
-        </ion-col>
-      </ion-row>
-      <ion-row *ngIf="isTrain">
-        <ion-col>
-          <ion-input class="input">Ticket de Tren</ion-input>
-        </ion-col>
-      </ion-row>
-      <ion-row *ngIf="!isTrain">
-        <ion-col>
-          <ion-input class="input">Reserva de Hotel</ion-input>
-        </ion-col>
-      </ion-row>
-    </ion-grid>
-  </ion-card>
+    <ion-card>
+        <ion-grid>
+            <ion-row>
+                <ion-col>
+                    <ion-input class="input">{{name}}</ion-input>
+                </ion-col>
+                <ion-col>
+                    <ion-chip class="priceChip" color="secondary">
+                        <ion-label color="dark">{{price}}€/p</ion-label>
+                    </ion-chip>
+                </ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col>
+                    <ion-input class="input">{{lastName}}</ion-input>
+                </ion-col>
+            </ion-row>
+            <ion-row *ngIf="isTrain">
+                <ion-col>
+                    <ion-chip color="secondary">
+                        <ion-label color="dark">{{start}}</ion-label>
+                    </ion-chip>
+                </ion-col>
+                <ion-col>
+                    <ion-icon name="arrow-round-forward" size="large" class="arrow"></ion-icon>
+                </ion-col>
+                <ion-col>
+                    <ion-chip color="secondary">
+                        <ion-label color="dark">{{finish}}</ion-label>
+                    </ion-chip>
+                </ion-col>
+            </ion-row>
+            <ion-row *ngIf="!isTrain && isTrain!=null">
+                <ion-col>
+                    <ion-chip color="secondary">
+                        <ion-label color="dark">{{city}}</ion-label>
+                    </ion-chip>
+                </ion-col>
+            </ion-row>
+            <ion-row *ngIf="isTrain==null && city">
+                <ion-col>
+                    <ion-chip color="secondary">
+                        <ion-label color="dark">{{start}}</ion-label>
+                    </ion-chip>
+                </ion-col>
+                <ion-col>
+                    <ion-icon name="arrow-round-forward" size="large" class="arrow"></ion-icon>
+                </ion-col>
+                <ion-col>
+                    <ion-chip color="secondary">
+                        <ion-label color="dark">{{finish}}</ion-label>
+                    </ion-chip>
+                </ion-col>
+            </ion-row>
+            <ion-row *ngIf="isTrain==null && city">
+                <ion-col>
+                    <ion-chip color="secondary">
+                        <ion-label color="dark">{{city}}</ion-label>
+                    </ion-chip>
+                </ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col>
+                    <ion-input class="input">Número de personas: {{people}}</ion-input>
+                </ion-col>
+            </ion-row>
+            <ion-row *ngIf="isTrain">
+                <ion-col>
+                    <ion-input class="input">Ticket de Tren</ion-input>
+                </ion-col>
+            </ion-row>
+            <ion-row *ngIf="!isTrain">
+                <ion-col>
+                    <ion-input class="input">Reserva de Hotel</ion-input>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+    </ion-card>
 </ion-content>
