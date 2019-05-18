@@ -47,7 +47,7 @@ async sendData(){
     await this.apiService.sendDataHotel(dataUrl.toLowerCase())
     let datos = await this.storage.get("HOTEL");
     console.log(datos);
-    //this.router.navigateByUrl('listahoteles');
+    this.router.navigateByUrl('listahoteles');
   }
 
 

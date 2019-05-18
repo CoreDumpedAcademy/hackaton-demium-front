@@ -13,16 +13,18 @@ export class ListaTrenesPage implements OnInit {
 
   data:any
   hasLoaded:Boolean = false
-
+  horas = [];
+  precios = [];
   constructor(private storage: Storage, private router: Router) { }
 
   loadData() {
     this.storage.get('TRAVEL').then((viaje: any) => {
-      if (viaje != null) {
         this.data = viaje;
+        for(let hour in this.data["price"]){
+          this.horas.push(hour);
+          this.precios.push(this.data["price"][hour]);
+        }
         this.hasLoaded = true;
-      }
-      else this.router.navigateByUrl('')
     })
   }
 
