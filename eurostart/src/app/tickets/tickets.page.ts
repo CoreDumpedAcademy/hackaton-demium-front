@@ -1,8 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {TicketsService} from '../tickets.service';
 import {APIService} from '../api.service';
-import {sendData} from '../sendData.service';
 import {Router} from '@angular/router';
+import { Storage } from '@ionic/storage';
 
 @Component({
     selector: 'app-tickets',
@@ -11,7 +11,7 @@ import {Router} from '@angular/router';
 })
 export class TicketsPage implements OnInit {
 
-    constructor(private api: APIService, private SendData: sendData, private router: Router) {
+    constructor(private api: APIService, private router: Router, private storage: Storage) {
     }
 
     items: [{}];
@@ -33,6 +33,7 @@ export class TicketsPage implements OnInit {
     }
 
     sendAllData(data) {
+        this.storage.set('ticketInfo', data)
         this.SendData.sendData(data);
         this.router.navigateByUrl('ticket-info');
     }
