@@ -1,0 +1,34 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>hotelsearch</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+    <ion-item>
+      <label for="">City:</label>
+        <ion-select placeholder="Choose city" [(ngModel)]="place">
+            <ion-select-option *ngFor="let city of citiesList"  value="{{city}}">{{city}}</ion-select-option>
+          </ion-select>
+    </ion-item>
+    <ion-item>
+        <label>Number of Nights:</label>
+        <label for="">{{numberNights}}</label>
+        <ion-button shape="round" size="small" (click)="addNight()" class="ion-padding-horizontal">+</ion-button>
+        <ion-button shape="round" size="small" (click)="subNight()" class="ion-padding-horizontal">-</ion-button>
+    </ion-item>
+    <ion-item>
+      <label>Number of Adults:</label>
+      <label for="">{{numberPassengers}}</label>
+      <ion-button shape="round" size="small" (click)="addPassenger()" class="ion-padding-horizontal">+</ion-button>
+      <ion-button shape="round" size="small" (click)="subPassenger()" class="ion-padding-horizontal">-</ion-button>
+    </ion-item>
+    <ion-item>
+        <label>Number of Childs:</label>
+        <label for="">{{numberChilds}}</label>
+        <ion-button shape="round" size="small" (click)="addChild()" class="ion-padding-horizontal">+</ion-button>
+        <ion-button shape="round" size="small" (click)="subChild()" class="ion-padding-horizontal">-</ion-button>
+      </ion-item>
+    <ion-button class="ion-float-right" (click)="sendData()">Submit</ion-button>
+  </ion-content>

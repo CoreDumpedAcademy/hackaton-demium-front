@@ -7,7 +7,8 @@ const routes: Routes = [
   { path: 'searchbar', loadChildren: './searchbar/searchbar.module#SearchbarPageModule' },
   { path: 'tickets', loadChildren: './tickets/tickets.module#TicketsPageModule' },
   { path: 'ticket-info', loadChildren: './ticket-info/ticket-info.module#TicketInfoPageModule' },  { path: 'contactanos', loadChildren: './contactanos/contactanos.module#ContactanosPageModule' },
-  { path: 'listahoteles', loadChildren: './listahoteles/listahoteles.module#ListahotelesPageModule' }
+  { path: 'listahoteles', loadChildren: './listahoteles/listahoteles.module#ListahotelesPageModule' },
+  { path: 'hotelsearch', loadChildren: './hotelsearch/hotelsearch.module#HotelsearchPageModule' }
 
 ];
 

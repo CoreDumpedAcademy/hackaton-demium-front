@@ -25,5 +25,15 @@ export class APIService {
        }
      );
   }
+  async sendDataHotel(urlData:string){
+    let price;
+    let object = {};
+     await this.http.get(`${this.API}hotel/getPrice/${urlData}`).subscribe(
+        data =>{
+          this.storage.set("HOTEL", data);
+
+       }
+     );
+  }
   
 }
