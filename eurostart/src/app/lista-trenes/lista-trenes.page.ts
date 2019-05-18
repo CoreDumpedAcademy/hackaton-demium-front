@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ApiResponse } from '../api-response';
+import { ApiResponse } from '../api-response-train';
 import { Storage } from '@ionic/storage';
 import { Router } from '@angular/router';
 
@@ -11,13 +11,13 @@ import { Router } from '@angular/router';
 
 export class ListaTrenesPage implements OnInit {
 
-  data:ApiResponse
+  data:any
   hasLoaded:Boolean = false
 
   constructor(private storage: Storage, private router: Router) { }
 
   loadData() {
-    this.storage.get('TRAVEL').then((viaje: ApiResponse) => {
+    this.storage.get('TRAVEL').then((viaje: any) => {
       if (viaje != null) {
         this.data = viaje;
         this.hasLoaded = true;

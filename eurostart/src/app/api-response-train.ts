@@ -1,6 +1,7 @@
 export interface ApiResponse {
-    destino: String,
-    origen: String,
-    personas: Number,
-    precio: Number
+    from: String;
+    to: String;
+    adult: Number;
+    children:Number;
+    precio: Number;
 }

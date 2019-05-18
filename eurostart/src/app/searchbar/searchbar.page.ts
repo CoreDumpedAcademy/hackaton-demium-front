@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ApiResponse } from '../api-response-train';
 import {APIService} from '../api.service';
 import { Storage } from '@ionic/storage';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-searchbar',
@@ -11,16 +13,17 @@ import { Storage } from '@ionic/storage';
 export class SearchbarPage implements OnInit {
   citiesList= ['Madrid',
     'Barcelona',
-    'Málaga',
+    'Malaga',
     'Granada',
     'Pamplona']
   fromDate:string;
-  data:ApiResponse;
+  data= {};
   toDate:string;
   numberPassengers:number = 0;
   cityFrom:string = "";
   cityTo:string = "";
-  constructor(private apiService:APIService, private storage:Storage) { }
+  numberChilds:number = 0;
+  constructor(private apiService:APIService, private storage:Storage, private router:Router) { }
   addPassenger(){
     this.numberPassengers++;
   }
@@ -28,23 +31,27 @@ export class SearchbarPage implements OnInit {
     if(this.numberPassengers > 0) this.numberPassengers = this.numberPassengers - 1
 
   }
-  senData(){
+  addChild(){
+    this.numberChilds++;
+  }
+  subChild(){
+    if(this.numberChilds > 0) this.numberChilds--;
+  }
+  async sendData(){
     if(this.cityFrom != "" && this.cityTo != "" && this.cityFrom != this.cityTo && this.numberPassengers > 0){
-      const dataUrl = this.cityFrom + "/" + "/" + this.cityTo + "/" + this.numberPassengers;
-      this.data.destino = this.cityTo;
-      this.data.origen = this.cityFrom;
-      this.data.personas = this.numberPassengers;
-      this.apiService.sendDataTrain(dataUrl).subscribe((
-        data:{datares:ApiResponse}) => {
-          this.data.precio = data.datares.precio;
-      })
-      this.storage.set('TRAVEL', this.data);
+      const dataUrl = this.cityFrom + "/" + this.cityTo + "/" + this.numberPassengers + "/" + this.numberChilds;
+      console.log(dataUrl.toLowerCase());
+      let dataObject:any;
+      await this.apiService.sendDataTrain(dataUrl)
+
+      this.router.navigateByUrl('lista-trenes')
     }
 
 
   }
   ngOnInit() {
     this.fromDate=new Date().toISOString();
+
 
   }
 

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Storage } from '@ionic/storage';
 import { HttpClient } from '@angular/common/http';
-import {ApiResponse } from './api-response'
+import {ApiResponse } from './api-response-train'
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +15,15 @@ export class APIService {
   getData() {
     return this.http.get(`${this.API}tickets/all`);
   }
-  sendDataTrain(urlData:string){
-     return this.http.get(`${this.API}train/getPrice/`);
+  async sendDataTrain(urlData:string){
+    let price;
+    let object = {};
+     await this.http.get(`${this.API}train/getPrice/${urlData}`).subscribe(
+        data =>{
+          this.storage.set("TRAVEL", data);
+
+       }
+     );
   }
+  
 }
