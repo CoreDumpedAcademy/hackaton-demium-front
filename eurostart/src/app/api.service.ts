@@ -7,7 +7,11 @@ import { HttpClient } from '@angular/common/http';
 })
 export class APIService {
 
-  API: 'http://localhost:3000/api/';
+  API: 'http://localhost:3000/';
 
   constructor(private http: HttpClient, private storage: Storage) { }
+
+  getData() {
+    return this.http.get(`${this.API}all`);
+  }
 }
