@@ -32,4 +32,8 @@ export class ListaTrenesPage implements OnInit {
     this.loadData();
   }
 
+  goBack() {
+    this.router.navigateByUrl('homepage');
+  }
+
 }
