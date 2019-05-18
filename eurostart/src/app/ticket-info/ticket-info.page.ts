@@ -25,8 +25,11 @@ export class TicketInfoPage implements OnInit {
       console.log(data);
       this.name = data.name;
       this.lastName = data.surname;
+      this.start = data.from;
+      this.finish = data.to;
       this.price = data.price;
       this.isTrain = data.isTrain;
+      this.people = data.children + data.adults;
     });
   }
 
