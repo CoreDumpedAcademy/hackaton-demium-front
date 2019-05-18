@@ -1,12 +1,13 @@
 <ion-header>
     <ion-toolbar color=principal>
         <ion-title style="text-align: center">
-          This.EuroStart
+          EuroStart
         </ion-title>
       </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  
   <ion-item>
     <label for="">From:</label>
       <ion-select placeholder="Choose city" [(ngModel)]="cityFrom">
@@ -39,5 +40,5 @@
       <ion-button shape="round" size="small" (click)="addChild()" class="ion-padding-horizontal">+</ion-button>
       <ion-button shape="round" size="small" (click)="subChild()" class="ion-padding-horizontal">-</ion-button>
     </ion-item>
-  <ion-button class="ion-float-right" (click)="sendData()">Submit</ion-button>
+  <ion-button shape="round" expand="full" (click)="sendData()">Submit</ion-button>
 </ion-content>
