@@ -19,6 +19,7 @@ export class TicketInfoPage implements OnInit {
   price: number;
   people: number;
   isTrain: boolean;
+  city: string;
 
   ngOnInit() {
     
@@ -30,6 +31,7 @@ export class TicketInfoPage implements OnInit {
         this.price = data.price;
         this.isTrain = data.isTrain;
         this.people = data.children + data.adults;
+        this.city = data.city;
       });
   }
 
