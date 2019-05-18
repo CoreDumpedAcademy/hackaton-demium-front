@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { ApiResponse } from '../api-response';
+import { ApiResponse } from '../api-response-train';
 import {APIService} from '../api.service';
+import { Storage } from '@ionic/storage';
+
 @Component({
   selector: 'app-searchbar',
   templateUrl: './searchbar.page.html',
@@ -18,7 +20,7 @@ export class SearchbarPage implements OnInit {
   numberPassengers:number = 0;
   cityFrom:string = "";
   cityTo:string = "";
-  constructor(private apiService:APIService) { }
+  constructor(private apiService:APIService, private storage:Storage) { }
   addPassenger(){
     this.numberPassengers++;
   }
@@ -29,14 +31,14 @@ export class SearchbarPage implements OnInit {
   senData(){
     if(this.cityFrom != "" && this.cityTo != "" && this.cityFrom != this.cityTo && this.numberPassengers > 0){
       const dataUrl = this.cityFrom + "/" + "/" + this.cityTo + "/" + this.numberPassengers;
-      this.data.train.destino = this.cityTo;
-      this.data.train.origen = this.cityFrom;
-      this.data.train.personas = this.numberPassengers;
-      this.apiService.sendDataTrain(dataUrl).subscribe(
-        data => {
-
-        }
-      )
+      this.data.destino = this.cityTo;
+      this.data.origen = this.cityFrom;
+      this.data.personas = this.numberPassengers;
+      this.apiService.sendDataTrain(dataUrl).subscribe((
+        data:{datares:ApiResponse}) => {
+          this.data.precio = data.datares.precio;
+      })
+      this.storage.set('TRAVEL', this.data);
     }
 
 
