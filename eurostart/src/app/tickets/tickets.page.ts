@@ -34,7 +34,6 @@ export class TicketsPage implements OnInit {
 
     sendAllData(data) {
         this.storage.set('ticketInfo', data)
-        this.SendData.sendData(data);
         this.router.navigateByUrl('ticket-info');
     }
 
