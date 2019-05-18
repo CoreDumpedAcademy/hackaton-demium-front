@@ -1,8 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {TicketsService} from '../tickets.service';
 import {APIService} from '../api.service';
-import { sendData } from '../sendData.service'
-import { Router } from '@angular/router';
+import {sendData} from '../sendData.service';
+import {Router} from '@angular/router';
 
 @Component({
     selector: 'app-tickets',
@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
 })
 export class TicketsPage implements OnInit {
 
-    constructor(private api: APIService,private SendData: sendData, private router: Router) {
+    constructor(private api: APIService, private SendData: sendData, private router: Router) {
     }
 
     items: [{}];
@@ -29,9 +29,8 @@ export class TicketsPage implements OnInit {
         this.loadTickets();
     }
 
-    sendAllData(lastName) {
-        this.SendData.sendData(lastName);
+    sendAllData(data) {
+        this.SendData.sendData(data);
         this.router.navigateByUrl('ticket-info');
     }
-
 }
