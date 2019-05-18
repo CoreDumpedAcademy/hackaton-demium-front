@@ -13,11 +13,12 @@ export class TicketsPage implements OnInit {
     constructor(private api: APIService,private sendData: sendData) {
     }
 
-    items: any;
+    items: [{}];
 
     loadTickets() {
-        this.api.getData().subscribe(data => {
+        this.api.getData().subscribe((data: [{}]) => {
             this.items = data;
+            this.items.reverse();
         }, err => {
             console.log(err);
         });
