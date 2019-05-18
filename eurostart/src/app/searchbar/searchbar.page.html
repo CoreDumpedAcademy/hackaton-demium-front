@@ -1,9 +1,38 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>searchbar</ion-title>
-  </ion-toolbar>
+    <ion-toolbar color=principal>
+        <ion-title style="text-align: center">
+          This.EuroStart
+        </ion-title>
+      </ion-toolbar>
 </ion-header>
 
 <ion-content>
-<ion-searchbar></ion-searchbar>
+  <ion-item>
+    <label for="">From:</label>
+      <ion-select placeholder="Choose city">
+          <ion-select-option *ngFor="let city of citiesList"  value="{{city}}">{{city}}</ion-select-option>
+        </ion-select>
+  </ion-item>
+
+  <ion-item>
+    <label for="">To:</label>
+      <ion-select placeholder="Choose city">
+          <ion-select-option *ngFor="let city of citiesList"  value="{{city}}">{{city}}</ion-select-option>
+        </ion-select>
+  </ion-item>
+
+  <ion-item>
+    <label for="">Start date:</label>
+      <ion-datetime [(ngModel)]="fromDate"></ion-datetime>
+  </ion-item>
+  <ion-item>
+    <label for="">End date:</label>
+    <ion-datetime min="{{fromDate}}"></ion-datetime>
+  </ion-item>
+  <ion-item>
+    <h4>Number of Passengers:</h4>
+    <h5>{{numberPassengers}}</h5>
+    <ion-button shape="round" size="small" (click)="addPassenger()" class="ion-padding-horizontal">+</ion-button>
+    <ion-button shape="round" size="small" (click)="subPassenger()" class="ion-padding-horizontal">-</ion-button>
+  </ion-item>
 </ion-content>
