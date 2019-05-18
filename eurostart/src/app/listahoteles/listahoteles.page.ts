@@ -1,6 +1,7 @@
 import { ApiResponse } from './../api-response-train';
 import { Storage } from '@ionic/storage';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-listahoteles',
@@ -9,7 +10,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListahotelesPage implements OnInit {
 
-  constructor(private storage: Storage) { }
+  constructor(private storage: Storage, private router: Router) { }
 
   destino: any
   hasLoaded:Boolean = false
@@ -32,6 +33,10 @@ export class ListahotelesPage implements OnInit {
 
   ngOnInit() {
     this.loadData();
+  }
+
+  goBack() {
+    this.router.navigateByUrl('homepage')
   }
 
 }
