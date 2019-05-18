@@ -1,3 +1,25 @@
-<ion-content>
+<ion-header *ngIf="hasLoaded">
+  {{data.train.origen}} - {{data.train.destino}}
+</ion-header>
 
+<ion-content *ngIf="hasLoaded">
+  <ion-grid>
+    <ion-card>
+      <ion-card-content>
+        <ion-row>
+          <ion-item>
+            <h1>{{data.train.origen}} - {{data.train.destino}}</h1>
+          </ion-item>
+        </ion-row>
+        <ion-row>
+          <ion-col><br>
+            <p style="text-align: center; font-size: 20px"> 25€ </p>
+          </ion-col>
+          <ion-col>
+            <ion-button expand="block" size="large"> Reservar </ion-button>
+          </ion-col>
+        </ion-row>
+        </ion-card-content>
+    </ion-card>
+  </ion-grid>
 </ion-content>
