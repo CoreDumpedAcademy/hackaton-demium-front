@@ -8,7 +8,43 @@
 <ion-content>
   <ion-card *ngFor="let red of redes">
     <ion-card-header>
-      <a style="text-align: center" href="{{red.link}}">{{red.name}}</a> 
+      <ion-grid>
+        <ion-col>
+        <i class="fab fa-{{red.icon}}"></i>
+        </ion-col>
+        <a style="text-align: center; font-size: 20px" href="{{red.link}}">{{red.name}}</a> 
+      </ion-grid>
     </ion-card-header>
   </ion-card>
+  <form #form="ngForm" (ngSubmit)="add(form)">
+    <ion-grid>
+      <ion-row color="" justify-content-center>
+        <ion-col align-self-center size-md="6" size-lg="5" size-xs="12">
+          <div text-center>
+            <h3> Añadir una red social </h3>
+          </div>
+            <div padding>
+              <ion-item>
+                <ion-input name="name" type="name" placeholder="Name" ngModel required></ion-input>
+              </ion-item>
+              <ion-item>
+                <ion-input name="link" type="link" placeholder="Url" ngModel required></ion-input>
+              </ion-item>
+            </div>
+            <ion-col align-self-center size-md="6" size-lg="5" size-xs="12">
+            </ion-col>
+            <div padding>
+              <ion-button size="large" type="submit" [disabled]="form.invalid" expand="block">Añadir</ion-button>
+            </div>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-button (click)="goBack()" shape="round" expand="full"> Volver atrás </ion-button>
+        </ion-col>
+      </ion-row>
+      </ion-grid>
+    </form>
 </ion-content>

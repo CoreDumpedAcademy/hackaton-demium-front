@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { RedsocialService } from '../redsocial.service';
 import { Redsocial } from '../redsocial';
+import { Router } from '@angular/router';
+import { Form } from '@angular/forms';
 
 @Component({
   selector: 'app-contactanos',
@@ -9,7 +11,7 @@ import { Redsocial } from '../redsocial';
 })
 export class ContactanosPage implements OnInit {
 
-  constructor(private service: RedsocialService) { }
+  constructor(private service: RedsocialService, private router: Router) { }
 
   redes:[Redsocial]
   hasLoaded:Boolean = false
@@ -21,6 +23,16 @@ export class ContactanosPage implements OnInit {
       this.redes = data.socials
       this.hasLoaded = true
     })
+  }
+
+  add(form) {
+    this.service.postData(form.form.value).subscribe(() => {
+      location.reload()
+    })
+  }
+
+  goBack() {
+    this.router.navigateByUrl('')
   }
 
   ngOnInit() {

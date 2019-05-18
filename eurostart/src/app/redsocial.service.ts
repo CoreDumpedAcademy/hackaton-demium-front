@@ -15,4 +15,8 @@ export class RedsocialService {
   getData() {
     return this.http.get(`${this.API}/socialNet/all`)
   }
+
+  postData(data) {
+    return this.http.post(`${this.API}/socialNet/save`, data)
+  }
 }
