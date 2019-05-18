@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ApiResponse } from '../api-response';
+import { ApiResponse } from '../api-response-train';
 import { Storage } from '@ionic/storage';
 import { Router } from '@angular/router';
 
