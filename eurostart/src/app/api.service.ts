@@ -12,7 +12,6 @@ export class APIService {
   constructor(private http: HttpClient, private storage: Storage) { }
 
   getData() {
-    return this.http.get(`${this.API}api`)
+    return this.http.get(`${this.API}all`);
   }
-
 }
