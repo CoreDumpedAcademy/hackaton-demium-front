@@ -11,8 +11,8 @@ import { Router } from '@angular/router';
 
 export class ListaTrenesPage implements OnInit {
 
-  data:any
-  hasLoaded:Boolean = false
+  data: any;
+  hasLoaded = false;
   horas = [];
   precios = [];
   constructor(private storage: Storage, private router: Router) { }
@@ -20,12 +20,16 @@ export class ListaTrenesPage implements OnInit {
   loadData() {
     this.storage.get('TRAVEL').then((viaje: any) => {
         this.data = viaje;
-        for(let hour in this.data["price"]){
+      // tslint:disable-next-line:forin
+        for (const hour in this.data['price']){
           this.horas.push(hour);
-          this.precios.push(this.data["price"][hour]);
+          this.precios.push(this.data['price'][hour]);
         }
         this.hasLoaded = true;
-    })
+    });
+  }
+  goTickets() {
+    this.router.navigateByUrl('tickets');
   }
 
   ngOnInit() {

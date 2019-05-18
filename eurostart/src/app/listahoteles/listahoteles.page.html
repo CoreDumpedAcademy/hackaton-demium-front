@@ -1,29 +1,29 @@
 <ion-header *ngIf="hasLoaded">
-  <ion-toolbar>
-    <ion-title text-center>{{destino.city}}</ion-title>
-  </ion-toolbar>
+    <ion-toolbar>
+        <ion-title text-center>{{destino.city}}</ion-title>
+    </ion-toolbar>
 </ion-header>
 
 <ion-content *ngIf="hasLoaded">
-  <ion-grid>
-      <ion-card *ngFor="let hotel of hoteles;let precio = index">
-        <ion-card-content>
-          <ion-row>
-            <ion-item>
-              <h1 style="text-align: center">{{hotel}}</h1>
-            </ion-item>
-          </ion-row>
-          <ion-row>
-            <ion-col><br>
-              <p style="text-align: center; font-size: 20px">{{dinero[precio]}} €</p>
-            </ion-col>
-            <ion-col>
-              <ion-button expand="block" size="large" (click)="goTickets()"> Reservar </ion-button>
-            </ion-col>
-          </ion-row>
-          </ion-card-content>
-      </ion-card>
+    <ion-grid>
+        <ion-card *ngFor="let hotel of hoteles;let precio = index">
+            <ion-card-content>
+                <ion-row>
+                    <ion-item>
+                        <h1 style="text-align: center">{{hotel}}</h1>
+                    </ion-item>
+                </ion-row>
+                <ion-row>
+                    <ion-col><br>
+                        <p style="text-align: center; font-size: 20px">{{dinero[precio]}} €</p>
+                    </ion-col>
+                    <ion-col>
+                        <ion-button expand="block" size="large" (click)="goTickets()"> Reservar</ion-button>
+                    </ion-col>
+                </ion-row>
+            </ion-card-content>
+        </ion-card>
     </ion-grid>
-    <ion-button expand="full" (click)="goBack()"> Volver a home </ion-button>
+    <ion-button expand="full" (click)="goBack()"> Volver a home</ion-button>
 
 </ion-content>

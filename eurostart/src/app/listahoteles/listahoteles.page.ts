@@ -12,23 +12,24 @@ export class ListahotelesPage implements OnInit {
 
   constructor(private storage: Storage, private router: Router) { }
 
-  destino: any
-  hasLoaded:Boolean = false
-  hoteles = []
-  dinero = []
+  destino: any;
+  hasLoaded = false;
+  hoteles = [];
+  dinero = [];
 
   loadData() {
     this.storage.get('HOTEL').then((data) => {
       this.destino = data;
       console.log(data);
 
-      for(let hotels in this.destino["prices"]) {
+      // tslint:disable-next-line:forin
+      for (const hotels in this.destino['prices']) {
         this.hoteles.push(hotels);
-        this.dinero.push(data["prices"][hotels]);
+        this.dinero.push(data['prices'][hotels]);
         this.hasLoaded = true;
       }
       console.log(this.hoteles);
-    })
+    });
   }
 
   ngOnInit() {
