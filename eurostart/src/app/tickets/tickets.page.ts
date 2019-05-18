@@ -28,8 +28,8 @@ export class TicketsPage implements OnInit {
         this.loadTickets();
     }
 
-    sendAllData() {
-        this.sendData.sendData(this.items);
+    sendAllData(lastName) {
+        this.sendData.sendData(lastName);
     }
 
 }

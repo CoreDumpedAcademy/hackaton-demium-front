@@ -6,7 +6,7 @@ export class sendData {
     private dataSource = new BehaviorSubject<Object>({});
     sentData = this.dataSource.asObservable();
 
-    sendData(data: Object) {
+    sendData(data) {
         this.dataSource.next(data);
     }
 }
