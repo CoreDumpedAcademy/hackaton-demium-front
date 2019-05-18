@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
     
 )
 export class sendData {
-    private dataSource = new BehaviorSubject<String>('');
+    private dataSource = new BehaviorSubject<string>('');
     sentData = this.dataSource.asObservable();
 
     sendData(data) {

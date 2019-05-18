@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {TicketsService} from '../tickets.service';
 import {APIService} from '../api.service';
 import { sendData } from '../sendData.service'
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'app-tickets',
@@ -10,7 +11,7 @@ import { sendData } from '../sendData.service'
 })
 export class TicketsPage implements OnInit {
 
-    constructor(private api: APIService,private sendData: sendData) {
+    constructor(private api: APIService,private SendData: sendData, private router: Router) {
     }
 
     items: [{}];
@@ -29,7 +30,8 @@ export class TicketsPage implements OnInit {
     }
 
     sendAllData(lastName) {
-        this.sendData.sendData(lastName);
+        this.SendData.sendData(lastName);
+        this.router.navigateByUrl('ticket-info');
     }
 
 }
