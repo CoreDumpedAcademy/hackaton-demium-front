@@ -6,7 +6,8 @@ const routes: Routes = [
   { path: 'lista-trenes', loadChildren: './lista-trenes/lista-trenes.module#ListaTrenesPageModule' },
   { path: 'searchbar', loadChildren: './searchbar/searchbar.module#SearchbarPageModule' },
   { path: 'tickets', loadChildren: './tickets/tickets.module#TicketsPageModule' },
-  { path: 'ticket-info', loadChildren: './ticket-info/ticket-info.module#TicketInfoPageModule' }
+  { path: 'ticket-info', loadChildren: './ticket-info/ticket-info.module#TicketInfoPageModule' },  { path: 'contactanos', loadChildren: './contactanos/contactanos.module#ContactanosPageModule' }
+
 ];
 
 @NgModule({
