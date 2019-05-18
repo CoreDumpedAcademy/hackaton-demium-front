@@ -23,4 +23,5 @@ const routes: Routes = [
   ],
   declarations: [TicketsPage]
 })
-export class TicketsPageModule {}
+export class TicketsPageModule {
+}

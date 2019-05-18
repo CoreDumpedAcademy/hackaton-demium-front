@@ -7,7 +7,6 @@ const routes: Routes = [
   { path: 'searchbar', loadChildren: './searchbar/searchbar.module#SearchbarPageModule' },
   { path: 'tickets', loadChildren: './tickets/tickets.module#TicketsPageModule' },
   { path: 'ticket-info', loadChildren: './ticket-info/ticket-info.module#TicketInfoPageModule' }
-
 ];
 
 @NgModule({
