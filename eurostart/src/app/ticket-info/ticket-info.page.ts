@@ -22,7 +22,7 @@ export class TicketInfoPage implements OnInit {
 
   ngOnInit() {
     
-      this.storage.get('info').then(data => {
+      this.storage.get('ticketInfo').then(data => {
         this.name = data.name;
         this.lastName = data.surname;
         this.start = data.from;
