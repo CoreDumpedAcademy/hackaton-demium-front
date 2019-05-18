@@ -11,18 +11,22 @@ import { Router } from '@angular/router';
 export class TicketInfoPage implements OnInit {
 
   constructor(private http: HttpClient,private sendData: sendData, private router: Router) { }
-
-  data; 
+ 
   name: String;
   lastName: String;
   start: String;
   finish: String;
   price: number;
-  pricep: number;
   people: number;
+  isTrain: boolean;
 
   ngOnInit() {
-    this.sendData.sentData.subscribe(data => this.data = data)
+    this.sendData.sentData.subscribe(data => {
+      this.name = data.name;
+      this.lastName = data.surname;
+      this.price = data.price;
+      this.isTrain = data.isTrain;
+    })
   }
 
 }

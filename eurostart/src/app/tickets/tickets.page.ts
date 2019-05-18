@@ -29,8 +29,8 @@ export class TicketsPage implements OnInit {
         this.loadTickets();
     }
 
-    sendAllData(lastName) {
-        this.SendData.sendData(lastName);
+    sendAllData(data) {
+        this.SendData.sendData(data);
         this.router.navigateByUrl('ticket-info');
     }
 }
