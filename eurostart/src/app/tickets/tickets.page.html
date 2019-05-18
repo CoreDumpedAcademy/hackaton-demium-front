@@ -5,14 +5,14 @@
 </ion-header>
 
 <ion-content>
-  <ion-searchbar showCancelButton cancelButtonText="Custom Cancel"></ion-searchbar>
+  <ion-searchbar value="Ionic"></ion-searchbar>
   <ion-card *ngFor="let item of items">
     <ion-item>
       <ion-icon *ngIf="item.isTrain" name="train" slot="start"></ion-icon>
       <ion-icon *ngIf="!item.isTrain" name="bed" slot="start"></ion-icon>
       <ion-label>{{ item.name }} {{ item.surname }}</ion-label>
       <ion-label slot="end">Precio: {{ item.price }} €</ion-label>
-      <ion-button fill="outline" slot="end">View</ion-button>
+      <ion-button (click)="sendAllData(item.surname)" fill="outline" slot="end">View</ion-button>
     </ion-item>
 
 
