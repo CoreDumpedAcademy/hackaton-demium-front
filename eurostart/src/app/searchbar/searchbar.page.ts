@@ -37,7 +37,7 @@ export class SearchbarPage implements OnInit {
   subChild(){
     if(this.numberChilds > 0) this.numberChilds--;
   }
-  async sendData(){
+  async sendDataTrain(){
     if(this.cityFrom != "" && this.cityTo != "" && this.cityFrom != this.cityTo && this.numberPassengers > 0){
       const dataUrl = this.cityFrom + "/" + this.cityTo + "/" + this.numberPassengers + "/" + this.numberChilds;
       console.log(dataUrl.toLowerCase());
