@@ -6,16 +6,18 @@
 
 <ion-content>
   <ion-searchbar showCancelButton cancelButtonText="Custom Cancel"></ion-searchbar>
-  <ion-card>
+  <ion-card *ngFor="let item of items">
     <ion-item>
-      <ion-icon name="train" slot="start"></ion-icon>
-      <ion-label>ion-item in a card, icon left, button right</ion-label>
+      <ion-icon *ngIf="item.isTrain" name="train" slot="start"></ion-icon>
+      <ion-icon *ngIf="!item.isTrain" name="bed" slot="start"></ion-icon>
+      <ion-label>{{ item.name }} {{ item.surname }}</ion-label>
+      <ion-label slot="end">Precio: {{ item.price }} €</ion-label>
       <ion-button fill="outline" slot="end">View</ion-button>
     </ion-item>
 
+
     <ion-card-content>
-      This is content, without any paragraph or header tags,
-      within an ion-card-content element.
+      Destino: {{ item.description }}
     </ion-card-content>
   </ion-card>
 </ion-content>
