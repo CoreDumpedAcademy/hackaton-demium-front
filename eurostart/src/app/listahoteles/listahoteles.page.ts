@@ -19,15 +19,15 @@ export class ListahotelesPage implements OnInit {
 
   loadData() {
     this.storage.get('HOTEL').then((data) => {
-      this.destino = data
-      console.log(data)
-      
+      this.destino = data;
+      console.log(data);
+
       for(let hotels in this.destino["prices"]) {
-        this.hoteles.push(hotels)
-        this.dinero.push(data["prices"][hotels])
-        this.hasLoaded = true
+        this.hoteles.push(hotels);
+        this.dinero.push(data["prices"][hotels]);
+        this.hasLoaded = true;
       }
-      console.log(this.hoteles)
+      console.log(this.hoteles);
     })
   }
 
@@ -36,7 +36,11 @@ export class ListahotelesPage implements OnInit {
   }
 
   goBack() {
-    this.router.navigateByUrl('homepage')
+    this.router.navigateByUrl('homepage');
+  }
+
+  goTickets() {
+    this.router.navigateByUrl('tickets');
   }
 
 }
