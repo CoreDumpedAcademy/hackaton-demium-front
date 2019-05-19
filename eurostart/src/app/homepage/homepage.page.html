@@ -1,19 +1,26 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title style="text-align: center">EuroStart</ion-title>
+    <ion-title style="text-align: center">TravelDumped</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <div >
-    <img id="bgrimage" src="/assets/imagenes/travel.jpg" alt="imagenotavailable">
-  </div>
-  <br>
-  <ion-button shape="round" expand="full" href="/searchbar">Trenes</ion-button>
-  <br>
-  <ion-button shape="round" expand="full" href="/hotelsearch">Hoteles</ion-button>
-  <br>
-  <br>
-  <ion-button shape="round" expand="full" color="tertiary" href="/contactanos">Contactanos</ion-button>
+  <ion-grid>
+    <ion-row>
+      <ion-col></ion-col>
+    </ion-row>
+  </ion-grid>
+  <!-- fab placed to the top end -->
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button>
+        <ion-icon name="search"></ion-icon>
+      </ion-fab-button>
+      <ion-fab-list side="top">
+        <ion-fab-button><ion-icon name="train"></ion-icon></ion-fab-button>
+      </ion-fab-list>
+      <ion-fab-list side="start">
+        <ion-fab-button><ion-icon name="bed"></ion-icon></ion-fab-button>
+      </ion-fab-list>
+  </ion-fab>
   
 </ion-content>

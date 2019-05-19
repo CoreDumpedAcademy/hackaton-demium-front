@@ -25,7 +25,10 @@ export class ListaTrenesPage implements OnInit {
       else this.router.navigateByUrl('')
     })
   }
-
+  goTickets(){
+    if(!this.storage.get("BOTH_TICKET")) this.router.navigateByUrl('tickets');
+    else  this.router.navigateByUrl('listahoteles');
+  }
   ngOnInit() {
     this.loadData();
   }

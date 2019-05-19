@@ -1,0 +1,12 @@
+<ion-item>
+<ion-fab>
+  <ion-fab-button>
+    <ion-icon name="social"></ion-icon>
+  </ion-fab-button>
+  <ion-fab-list>
+    <ion-fab-button *ngFor="let red of redes" href="{{red.link}}">
+      <ion-icon name="{{red.icon}}"></ion-icon>
+    </ion-fab-button>
+  </ion-fab-list>
+</ion-fab>
+</ion-item>
