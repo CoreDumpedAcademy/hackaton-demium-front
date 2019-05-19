@@ -1,38 +1,48 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title text-center>Tickets</ion-title>
-  </ion-toolbar>
+    <ion-toolbar>
+        <ion-title text-center>Tickets</ion-title>
+    </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <ion-searchbar [(ngModel)]="search" (ionChange)="inputSearch()"></ion-searchbar>
-  <ion-card *ngFor="let item of showArray">
-    <ion-item>
-      <ion-icon *ngIf="item.isTrain" name="train" slot="start"></ion-icon>
-      <ion-icon *ngIf="!item.isTrain" name="bed" slot="start"></ion-icon>
-      <ion-icon *ngIf="item.isTrain == null" name="train" slot="start"></ion-icon>
-      <ion-label>{{ item.name }} {{ item.surname }}</ion-label>
-      <ion-label slot="end">Precio: {{ item.price }} €</ion-label>
-      <ion-button (click)="sendAllData(item)" fill="outline" slot="end">View</ion-button>
-    </ion-item>
+    <ion-searchbar [(ngModel)]="search" (ionChange)="inputSearch()"></ion-searchbar>
+    <ion-card *ngFor="let item of showArray">
+        <ion-item>
+            <ion-icon *ngIf="item.isTrain" name="train" slot="start"></ion-icon>
+            <ion-icon *ngIf="!item.isTrain" name="bed" slot="start"></ion-icon>
+            <ion-icon *ngIf="item.isTrain == null" name="train" slot="start"></ion-icon>
+            <ion-label>{{ item.name }} {{ item.surname }}</ion-label>
+            <ion-label slot="end">Precio: {{ item.price }} €</ion-label>
+            <ion-button (click)="sendAllData(item)" fill="outline" slot="end">View</ion-button>
+        </ion-item>
 
 
-    <ion-card-content *ngIf="!item.city && item.from">
-      Destino: <ion-chip> {{ item.from }} </ion-chip>
-      <ion-icon size="small" name="arrow-round-forward"></ion-icon>
-      <ion-chip> {{ item.to }} </ion-chip>
-    </ion-card-content>
+        <ion-card-content *ngIf="!item.city && item.from">
+            Destino:
+            <ion-chip> {{ item.from }} </ion-chip>
+            <ion-icon size="small" name="arrow-round-forward"></ion-icon>
+            <ion-chip> {{ item.to }} </ion-chip>
+        </ion-card-content>
 
-    <ion-card-content *ngIf="item.city && !item.from">
-      Ubicacion del Hotel: <ion-chip> {{ item.city }} </ion-chip>
-    </ion-card-content>
+        <ion-card-content *ngIf="item.city && !item.from">
+            Ubicacion del Hotel:
+            <ion-chip> {{ item.city }} </ion-chip>
+        </ion-card-content>
 
-    <ion-card-content *ngIf="item.city && item.from">
-      Ubicacion del Hotel: <ion-chip> {{ item.city }} </ion-chip> <br>
-      Destino: <ion-chip> {{ item.from }} </ion-chip>
-      <ion-icon size="small" name="arrow-round-forward"></ion-icon>
-      <ion-chip> {{ item.to }} </ion-chip>
-    </ion-card-content>
+        <ion-card-content *ngIf="item.city && item.from">
+            Ubicacion del Hotel:
+            <ion-chip> {{ item.city }} </ion-chip>
+            <br>
+            Destino:
+            <ion-chip> {{ item.from }} </ion-chip>
+            <ion-icon size="small" name="arrow-round-forward"></ion-icon>
+            <ion-chip> {{ item.to }} </ion-chip>
+        </ion-card-content>
 
-  </ion-card>
+    </ion-card>
+    <ion-fab vertical="bottom" horizontal="start" slot="fixed">
+            <ion-fab-button (click)="goHome()">
+                <ion-icon name="home"></ion-icon>
+            </ion-fab-button>
+        </ion-fab>
 </ion-content>

@@ -1,11 +1,19 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>hotelsearch</ion-title>
+  <ion-toolbar color="primary">
+    <ion-title style="text-align: center">Select your hotel</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-
+    <img src="../../assets/home.svg" alt="">
+    <ion-item>
+        <label for="">Name:</label>
+        <ion-input [(ngModel)]="name" placeholder=" Introduce your name"></ion-input>
+      </ion-item>
+      <ion-item>
+          <label for="">Last name:</label>
+          <ion-input [(ngModel)]="lastName" placeholder=" Introduce your last name"></ion-input>
+      </ion-item>
     <ion-item>
       <label for="">City:</label>
         <ion-select placeholder="Choose city" [(ngModel)]="place">
@@ -15,20 +23,43 @@
     <ion-item>
         <label>Number of Nights:</label>
         <label for="">{{numberNights}}</label>
-        <ion-button shape="round" size="small" (click)="addNight()" class="ion-padding-horizontal">+</ion-button>
-        <ion-button shape="round" size="small" (click)="subNight()" class="ion-padding-horizontal">-</ion-button>
+        <ion-button  size="small" (click)="addNight()" class="ion-padding-horizontal"><ion-icon name="add"></ion-icon></ion-button>
+        <ion-button  size="small" (click)="subNight()" class="ion-padding-horizontal"><ion-icon name="remove"></ion-icon></ion-button>
     </ion-item>
     <ion-item>
       <label>Number of Adults:</label>
       <label for="">{{numberPassengers}}</label>
-      <ion-button shape="round" size="small" (click)="addPassenger()" class="ion-padding-horizontal">+</ion-button>
-      <ion-button shape="round" size="small" (click)="subPassenger()" class="ion-padding-horizontal">-</ion-button>
+      <ion-button  size="small" (click)="addPassenger()" class="ion-padding-horizontal"><ion-icon name="add"></ion-icon></ion-button>
+      <ion-button  size="small" (click)="subPassenger()" class="ion-padding-horizontal"><ion-icon name="remove"></ion-icon></ion-button>
     </ion-item>
     <ion-item>
         <label>Number of Childs:</label>
         <label for="">{{numberChilds}}</label>
-        <ion-button shape="round" size="small" (click)="addChild()" class="ion-padding-horizontal">+</ion-button>
-        <ion-button shape="round" size="small" (click)="subChild()" class="ion-padding-horizontal">-</ion-button>
+        <ion-button  size="small" (click)="addChild()" class="ion-padding-horizontal"><ion-icon name="add"></ion-icon></ion-button>
+        <ion-button  size="small" (click)="subChild()" class="ion-padding-horizontal"><ion-icon name="remove"></ion-icon></ion-button>
       </ion-item>
-    <ion-button class="" (click)="sendData()">Submit</ion-button>
+      <ion-item>
+        <label for="">Do you want to buy a train's ticket to?</label>
+          <ion-toggle  [(ngModel)]="bothTickets" class="ion-margin-horizontal"></ion-toggle>
+      </ion-item>
+      <ion-item *ngIf="bothTickets">
+          <label for="">City From:</label>
+          <ion-select placeholder="Choose city" [(ngModel)]="cityFrom">
+              <ion-select-option *ngFor="let city of citiesList"  value="{{city}}">{{city}}</ion-select-option>
+            </ion-select>
+      </ion-item>
+      <ion-item *ngIf="errorText !== ''" color="danger">
+          <label for="">{{errorText}}</label>
+      </ion-item>
+      <ion-item></ion-item>
+    <ion-fab vertical="bottom" horizontal="end" slot="fixed" >
+      <ion-fab-button color="primary" size="small" (click)="sendData()">
+          <ion-icon name="pricetags"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>
+    <ion-fab vertical="bottom" horizontal="start" slot="fixed">
+        <ion-fab-button (click)="goHome()">
+            <ion-icon name="home"></ion-icon>
+        </ion-fab-button>
+    </ion-fab>
   </ion-content>

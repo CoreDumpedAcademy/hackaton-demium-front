@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-
+import { Router } from '@angular/router';
+import {RedsocialService} from '../redsocial.service'
+import {Redsocial} from '../redsocial'
 @Component({
   selector: 'app-homepage',
   templateUrl: './homepage.page.html',
@@ -7,9 +9,28 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomepagePage implements OnInit {
 
-  constructor() { }
+  constructor(private router:Router, private service: RedsocialService) { }
 
+
+  redes:[Redsocial]
+  hasLoaded:Boolean = false
+
+  loadData() {
+    this.service.getData().subscribe((data:{
+      socials:[Redsocial]
+    }) => {
+      this.redes = data.socials
+      this.hasLoaded = true
+    })
+  }
+  goHotel(){
+    this.router.navigateByUrl('hotelsearch');
+  }
+  goTrain(){
+    this.router.navigateByUrl('searchbar');
+  }
   ngOnInit() {
+    this.loadData();
   }
 
 }

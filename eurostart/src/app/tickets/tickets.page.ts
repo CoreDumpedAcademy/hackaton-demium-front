@@ -55,4 +55,7 @@ export class TicketsPage implements OnInit {
             this.showArray = this.items;
         }
     }
+    goHome(){
+        this.router.navigateByUrl('');
+    }
 }

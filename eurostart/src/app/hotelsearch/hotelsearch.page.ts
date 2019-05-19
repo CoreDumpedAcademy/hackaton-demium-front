@@ -14,22 +14,27 @@ export class HotelsearchPage implements OnInit {
   'Malaga',
   'Granada',
   'Pamplona']
-  numberNights:number = 0;
-  numberPassengers:number = 0;
+  numberNights:number = 1;
+  numberPassengers:number = 1;
   numberChilds:number = 0;
-  place:string ="";
+  place:string ="Madrid";
+  bothTickets:boolean = false;
+  cityFrom:string ="";
+  name:string="";
+  lastName:string="";
+  errorText:string="";
   constructor(private apiService:APIService, private storage:Storage, private router:Router) { }
   addNight(){
   this.numberNights++;
 }
 subNight(){
-  if(this.numberNights > 0) this.numberNights--;
+  if(this.numberNights > 1) this.numberNights--;
 }
 addPassenger(){
   this.numberPassengers++;
 }
 subPassenger(){
-  if(this.numberPassengers > 0) this.numberPassengers = this.numberPassengers - 1
+  if(this.numberPassengers > 1) this.numberPassengers = this.numberPassengers - 1
 
 }
 addChild(){
@@ -38,18 +43,33 @@ addChild(){
 subChild(){
   if(this.numberChilds > 0) this.numberChilds--;
 }
-ngOnInit() {
+async ngOnInit() {
+  await this.storage.set("BOTH_TICKET", false)
+
 }
 async sendData(){
-  if(this.place != "" && this.numberPassengers > 0 && this.numberNights > 0){
+  let sameFromTo = this.place == this.cityFrom;
+  if(sameFromTo){
+    this.errorText = "You cant take a train from "+ this.cityFrom + " to " +  this.place + ", is the same place... ";
+  }else if(this.name == ""){
+    this.errorText = "The name can't be in blank."
+}else if(this.lastName == ""){
+    this.errorText = "The last name can't be in blank."
+}else{
     const dataUrl = this.place + "/" + this.numberPassengers + "/" + this.numberChilds + "/" + this.numberNights;
     console.log(dataUrl.toLowerCase());
     await this.apiService.sendDataHotel(dataUrl.toLowerCase())
-    let datos = await this.storage.get("HOTEL");
-    console.log(datos);
+    if(this.bothTickets){
+      const ticketUrl = this.cityFrom + "/" + this.place + "/" + this.numberPassengers + "/" + this.numberChilds;
+      await this.apiService.sendDataTrain(ticketUrl.toLowerCase());
+      await this.storage.set("BOTH_TICKET", true);
+    }
     this.router.navigateByUrl('listahoteles');
-  }
 
+}
 
+}
+goHome(){
+  this.router.navigateByUrl('');
 }
 }

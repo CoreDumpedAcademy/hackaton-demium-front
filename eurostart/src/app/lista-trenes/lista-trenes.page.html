@@ -1,29 +1,37 @@
 <ion-header *ngIf="hasLoaded">
-  <ion-toolbar>
-    <ion-title style="text-align: center">
-      {{data.from}} - {{data.to}}
-    </ion-title>
-  </ion-toolbar>
+    <ion-toolbar>
+        <ion-title style="text-align: center">
+            {{data.from}} - {{data.to}}
+        </ion-title>
+    </ion-toolbar>
 </ion-header>
 
 <ion-content *ngIf="hasLoaded">
   <ion-grid>
-    <ion-card>
-      <ion-card-content>
-        <ion-row>
-          <ion-item>
-            <h1 style="text-align: center">{{data.from}} - {{data.to}}</h1>
-          </ion-item>
-        </ion-row>
-        <ion-row>
-          <ion-col><br>
-            <p style="text-align: center; font-size: 20px"> {{data.price}}</p>
-          </ion-col>
-          <ion-col>
-            <ion-button expand="block" size="large" (click)="goTickects()"> Reservar </ion-button>
-          </ion-col>
-        </ion-row>
-        </ion-card-content>
-    </ion-card>
+    <ion-item *ngFor="let hora of horas; let precio = index">
+        <ion-card>
+            <ion-card-content>
+              <ion-row>
+                <ion-item>
+                  <h1 style="text-align: center">{{data.from}} - {{data.to}}</h1>
+                </ion-item>
+              </ion-row>
+              <ion-row>
+                <ion-col><br>
+                  <p style="text-align: center; font-size: 20px"> {{hora}}  {{precios[precio]}}</p>
+                </ion-col>
+                <ion-col>
+                  <ion-button expand="block" size="large" (click)="goTickets()"> Reservar </ion-button>
+                </ion-col>
+              </ion-row>
+              </ion-card-content>
+          </ion-card>
+    </ion-item>
+    
   </ion-grid>
+  <ion-fab vertical="bottom" horizontal="start" slot="fixed">
+      <ion-fab-button (click)="goHome()">
+          <ion-icon name="home"></ion-icon>
+      </ion-fab-button>
+  </ion-fab>
 </ion-content>
