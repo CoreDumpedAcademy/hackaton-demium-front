@@ -8,7 +8,7 @@ import { Injectable } from '@angular/core';
 })
 export class RedsocialService {
 
-  API='http://localhost:3000'
+  API = 'http://172.18.0.1:3000/';
 
   constructor(private router:Router, private http: HttpClient) { }
 

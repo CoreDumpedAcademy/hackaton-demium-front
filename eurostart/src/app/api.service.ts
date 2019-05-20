@@ -7,7 +7,7 @@ import {ApiResponse } from './api-response-train'
 })
 export class APIService {
 
-  API = 'http://localhost:3000/';
+  API = 'http://172.18.0.1:3000/';
 
   constructor(private http: HttpClient, private storage: Storage) { }
 
